@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Form</title>
+    <script>
+        // Sample item prices
+        const itemPrices = {
+            "item1": 10.0,
+            "item2": 15.0,
+            "item3": 20.0
+        };
+
+        function addItem() {
+            const container = document.getElementById("itemContainer");
+            const itemIndex = container.children.length;
+
+            const itemDiv = document.createElement("div");
+            itemDiv.innerHTML = `
+                <label for="itemCode${itemIndex}">Item Code:</label>
+                <input type="text" id="itemCode${itemIndex}" name="itemCode" oninput="updateTotal()"><br>
+                <label for="quantity${itemIndex}">Quantity:</label>
+                <input type="number" id="quantity${itemIndex}" name="quantity" oninput="updateTotal()"><br>
+            `;
+            container.appendChild(itemDiv);
+        }
+
+        function updateTotal() {
+            let total = 0;
+            const itemContainer = document.getElementById("itemContainer");
+
+            for (let i = 0; i < itemContainer.children.length; i++) {
+                const itemCode = document.getElementById(`itemCode${i}`).value;
+                const quantity = document.getElementById(`quantity${i}`).value;
+                if (itemCode && quantity) {
+                    const price = itemPrices[itemCode];
+                    if (price) {
+                        total += price * parseInt(quantity, 10);
+                    } else {
+                        console.log(`Item code ${itemCode} not found in price list`);
+                    }
+                }
+            }
+
+            document.getElementById("totalAmount").innerText = "Total Amount: $" + total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <ul class="nav-links">
+        <li><a href="../myfirst/index.html">Home</a></li>
+
+        <li><a href="../myfirst/addItem.html">Add Items To Stock</a></li>
+    
+        <li><a href="../myfirst/reportForm.html">Generate Reports</a></li>
+      </ul>
+    <h1>Checkout Items</h1>
+    <form action="checkout" method="post">
+        <div id="itemContainer">
+            <div>
+                <label for="itemCode0">Item Code:</label>
+                <input type="text" id="itemCode0" name="itemCode" oninput="updateTotal()"><br>
+                <label for="quantity0">Quantity:</label>
+                <input type="number" id="quantity0" name="quantity" oninput="updateTotal()"><br>
+            </div>
+        </div>
+        <button type="button" onclick="addItem()">Add Another Item</button><br><br>
+        <p id="totalAmount">Total Amount: $0.00</p>
+        <label for="cashTendered">Cash Tendered:</label>
+        <input type="number" id="cashTendered" name="cashTendered"><br>
+        <button type="submit">Checkout</button>
+    </form>
+</body>
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        background: #fff;
+        padding: 20px;
+        max-width: 500px;
+        margin: 40px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    button[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .nav-links {
+        background-color: #4166cd;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .nav-links li {
+        float: left;
+    }
+    .nav-links li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .nav-links li a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+</style>

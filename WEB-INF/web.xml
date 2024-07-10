@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+
+    <servlet>
+        <servlet-name>FirstServlet</servlet-name>
+        <servlet-class>FirstServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FirstServlet</servlet-name>
+        <url-pattern>/FirstServlet</url-pattern>
+    </servlet-mapping>
+
+ <servlet>
+        <servlet-name>CheckOutServlet</servlet-name>
+        <servlet-class>CheckOutServlet</servlet-class>
+        <async-supported>true</async-supported>
+
+    </servlet>
+
+<servlet-mapping>
+        <servlet-name>CheckOutServlet</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddItemsServlet</servlet-name>
+        <servlet-class>AddItemsServlet</servlet-class>
+        <async-supported>true</async-supported>
+
+    </servlet>
+
+<servlet-mapping>
+        <servlet-name>AddItemsServlet</servlet-name>
+        <url-pattern>/additem</url-pattern>
+
+    </servlet-mapping>
+
+<servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>ReportServlet</servlet-class>
+        <async-supported>true</async-supported>
+
+    </servlet>
+
+<servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+
+</web-app>

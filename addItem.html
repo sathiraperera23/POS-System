@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Details</title>
+<script>
+    function toggleDiscountInput() {
+        var itemType = document.querySelector('input[name="itemType"]:checked').value;
+        var discountInput = document.getElementById("discountInput");
+        
+        if (itemType == "2") { // Discounted Item
+            discountInput.style.display = "block";
+        } else { // Normal Item
+            discountInput.style.display = "none";
+        }
+    }
+
+    window.onload = function() {
+        toggleDiscountInput(); // Initialize the form state
+    };
+</script>
+</head>
+<body>
+    <ul class="nav-links">
+        <li><a href="../myfirst/index.html">Home</a></li>
+
+        <li><a href="../myfirst/checkout.html">CheckOut</a></li>
+    
+        <li><a href="../myfirst/reportForm.html">Generate Reports</a></li>
+      </ul>
+    <h3>Add an item</h3>
+    <form action="additem" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="itemType">Choose item type:</label><br>
+                    <input type="radio" id="normalItem" name="itemType" value="1" checked onclick="toggleDiscountInput()">
+                    <label for="normalItem">Normal Item</label><br>
+                    <input type="radio" id="discountedItem" name="itemType" value="2" onclick="toggleDiscountInput()">
+                    <label for="discountedItem">Discounted Item</label><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Item Code</td>
+                <td><input type="text" id="itemcode" name="itemcode" required /></td>
+            </tr>
+            <tr>
+                <td>Item Name:</td>
+                <td><input type="text" name="itemname" required /></td>
+            </tr>
+            <tr>
+                <td>Item Price</td>
+                <td><input type="text" name="itemprice" required /></td>
+            </tr>
+            <tr>
+                <td>Item Quantity</td>
+                <td><input type="text" name="itemquantity" required /></td>
+            </tr>
+            <tr>
+                <td>Expiry Date</td>
+                <td><input type="text" name="expirydate" required /></td>
+            </tr>
+            <tr id="discountInput" style="display: none;">
+                <td>Discount Input</td>
+                <td><input type="text" name="itemdiscount" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit Details">
+    </form>
+</body>
+
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h3 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        background: #fff;
+        padding: 20px;
+        max-width: 600px;
+        margin: 40px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .nav-links {
+        background-color: #4166cd;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .nav-links li {
+        float: left;
+    }
+    .nav-links li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .nav-links li a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+</style>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Select Report</title>
+</head>
+<body>
+    <ul class="nav-links">
+        <li><a href="../myfirst/index.html">Home</a></li>
+
+        <li><a href="../myfirst/addItem.html">Add Items To Stock</a></li>
+    
+        <li><a href="../myfirst/checkout.html">CheckOut</a></li>
+      </ul>
+    <h3>Select Report</h3>
+    <form action="report" method="post">
+        <label for="reportNumber">Select Report:</label>
+        <select name="reportNumber" id="reportNumber">
+            <option value="1">Total Sale Report</option>
+            <option value="2">Reshelved Items Report</option>
+            <option value="3">Reorder Levels Report</option>
+            <option value="4">Stock Report</option>
+            <option value="5">Bill Report</option>
+            <option value="6">Generate All Reports</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Generate Report">
+    </form>
+</body>
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h3 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        background: #fff;
+        padding: 20px;
+        max-width: 500px;
+        margin: 40px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    select {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .nav-links {
+        background-color: #4166cd;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .nav-links li {
+        float: left;
+    }
+    .nav-links li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .nav-links li a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+</style>
